@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Pedido</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header>
+    <img src="https://i.ibb.co/ZgRzt4x/logo-pronavid.png" alt="Alimentos Pronavid">
+</header>
+
+<div class="container">
+    <label for="cliente">Cliente</label>
+    <select id="cliente">
+        <option value="">Seleccione un cliente</option>
+        <option value="">Distrifruver</option>
+        <option value="">Mercauno</option>
+        <option value="">Deuno</option>
+        <option value="">Granisero</option>
+        <option value="">Agromanisero</option>
+    </select>
+
+    <input type="text" id="search" placeholder="🔍 Buscar productos">
+    <div id="suggestions" class="suggestions"></div>
+
+    <div class="products" id="products">
+        <!-- Aquí se agregarán los productos dinámicamente -->
+    </div>
+
+    <div class="total">
+        <span>Total:</span>
+        <span id="total">$0</span>
+    </div>
+
+<div class="button-container">
+    <button class="register">Registrar Cotización</button>
+    <button class="save">Guardar Cotización</button>
+</div>
+
+</div>
+<!-- Modal Cotización -->
+<div id="modalCotizacion" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <div id="cotizacion-detalle"></div>
+    <div class="modal-buttons">
+      <button id="editar">Editar</button>
+      <button id="continuar">Continuar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Modal Guardado Cotización -->
+<div id="modalGuardado" class="modal">
+  <div class="modal-content">
+    <span class="close-guardado">&times;</span>
+    <h2>Cotización guardada</h2>
+    <p>La cotización ha sido guardada correctamente.</p>
+    <div class="modal-buttons">
+      <button id="registrarPedido">Registrar Pedido</button>
+      <button id="continuarGuardado">Continuar</button>
+    </div>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

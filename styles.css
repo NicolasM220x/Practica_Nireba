@@ -1,0 +1,322 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f8f8f8;
+}
+
+header {
+    background-color: #9e1b1b;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+}
+
+header img {
+    height: 50px;
+}
+
+.container {
+    max-width: 700px;
+    margin: 20px auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+select, input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.products {
+    margin-bottom: 20px;
+}
+
+/* Productos del carrito */
+.product {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    transition: transform 0.2s;
+    position: relative;
+}
+
+.product.added {
+    transform: scale(1.05);
+}
+
+.product img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 5px;
+    position: relative;
+}
+
+/* Badge de cantidad */
+.quantity-badge {
+    position: absolute;
+    top: -8px;
+    left: 40px;
+    background-color: #3b9df5;
+    color: white;
+    font-size: 0.8em;
+    font-weight: bold;
+    padding: 2px 6px;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* Controles de cantidad */
+.quantity-controls {
+    display: flex;
+    align-items: center;
+}
+
+.quantity-controls button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    border: none;
+    background-color: #9e1b1b;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.quantity-controls input {
+    width: 50px;
+    text-align: center;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+.total {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+}
+
+/* Botón verde centrado */
+
+
+/* Sugerencias con imagen y precio */
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+    border-bottom: 1px solid #eee;
+}
+
+.suggestion-item:hover {
+    background-color: #f0f0f0;
+    transform: scale(1.02);
+}
+
+.suggestion-item img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.suggestion-price {
+    font-size: 0.85em;
+    color: #555;
+    margin-left: auto;
+}
+/* Modal */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); 
+}
+
+.modal-content {
+    background-color: #e6ffe6;
+    margin: 10% auto;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.modal-buttons button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#continuar {
+    background-color: #6ca0dc;
+    color: white;
+}
+
+#editar {
+    background-color: #28a745;
+    color: white;
+}
+/* Estilos para ambos modales */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: #fff8f0;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.modal h2 {
+  margin-top: 0;
+  color: #d2691e;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.modal-buttons button {
+  padding: 8px 16px;
+  border: none;
+  background-color: #f4a261;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+.modal-buttons button:hover {
+  background-color: #e76f51;
+}
+
+.close, .close-guardado {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+/* Botón Guardar Cotización azul */
+button.save {
+  padding: 8px 16px;
+  border: none;
+  background-color: #3498db; /* Azul */
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.2s;
+}
+
+button.save:hover {
+  background-color: #2980b9; /* Azul más oscuro al pasar el mouse */
+}
+/* Estilo base para todos los botones principales */
+button.register,
+button.save {
+    display: inline-block;
+    width: 48%;          /* Ambos ocupan casi la mitad, para que queden parejos */
+    padding: 10px 0;
+    font-weight: bold;
+    font-size: 1em;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s, transform 0.1s;
+}
+
+/* Botón Registrar Cotización - Verde */
+button.register {
+    background-color: #28a745;
+    color: white;
+}
+
+button.register:hover {
+    background-color: #218838;
+}
+
+button.register:active {
+    transform: scale(0.95);
+}
+
+/* Botón Guardar Cotización - Azul */
+button.save {
+    background-color: #3498db;
+    color: white;
+}
+
+button.save:hover {
+    background-color: #2980b9;
+}
+
+button.save:active {
+    transform: scale(0.95);
+}
+
+/* Contenedor para alinear los botones juntos */
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
